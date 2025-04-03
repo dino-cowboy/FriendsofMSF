@@ -1,0 +1,63 @@
+<%- include('partials/header.ejs') %>
+
+<body class="d-flex flex-column" style="min-height: 100vh;"> <!-- Set body to use full viewport height -->
+    
+    <section class="contactPage py-5 flex-grow-1 d-flex align-items-center justify-content-center"> <!-- Use Flexbox to center the container vertically -->
+        <div class="container contactMe text-align">
+            <div class="py-3 text-center contactContainer rounded-3">
+                <div class="title my-5">
+                    <h1 class="title"> Let's Get In Touch ! </h1>
+                </div>
+                <form action="/send-email" method="POST">
+                    <label class="name mx-3" for="Name">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-person mx-1" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                        </svg> Name
+                    </label>
+        
+                    <label class="email" for="Name">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-envelope mx-1" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                        </svg> Email
+                    </label>
+
+                    <div class="d-flex py-3 p-3">
+                        <input name="name" type="text" id="Name" class="form-control my-3" placeholder="Your Name" >
+                        <input type="text" name="email" id="email" class="form-control inputBox my-3" placeholder="Your Email">
+                    </div>
+
+                    <label class="message mx-4" for="message">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                            <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
+                        </svg> Message
+                    </label>
+
+                    <div class="px-3">
+                        <textarea class="form-control my-3" name="message" id="message" placeholder="Hi Friends of MSF @ UTD! I'd love to discuss my ideas with you."></textarea>  
+                    </div>
+
+                    <div class="d-inline-flex gap-2 mb-5 mt-3">
+                        <button class="d-inline-flex btn btn-danger btn-lg px-3 rounded-pill text-center" type="submit">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer.ejs') %>
+
+</body>
+
+<script>
+    const homeButton = document.querySelector('.home');
+    const contactButton = document.querySelector('.contact');
+    const photosButton = document.querySelector('.photos');
+    const joinButton = document.querySelector('.join');
+    
+    photosButton.classList.remove('active');
+    homeButton.classList.remove('active');
+    joinButton.classList.remove('active');
+    contactButton.classList.add('active');
+</script>

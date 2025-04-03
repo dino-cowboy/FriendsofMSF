@@ -1,0 +1,42 @@
+<!-- views/photos.ejs -->
+<%- include('partials/header.ejs') %>
+
+<body>
+    <h1 class="title m-4 p-2">Our Photos !</h1>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <% images.forEach(image => { %>
+            <div class="col p-5">
+                <div class="card h-100 shadow-sm">
+                    <img 
+                        src="<%= image.url %>" 
+                        alt="<%= image.name %>" 
+                        class="card-img-top img-fluid"
+                        style="object-fit: cover; height: 250px; width: 100%;"
+                    >
+                    <div class="card-body">
+                        <p class="card-text"><%= image.name %></p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+
+</body>
+
+<script>
+    // Your provided script
+    const homeButton = document.querySelector('.home');
+    const contactButton = document.querySelector('.contact');
+    const photosButton = document.querySelector('.photos');
+    const joinButton = document.querySelector('.join');
+    
+    contactButton.classList.remove('active');
+    homeButton.classList.remove('active');
+    joinButton.classList.remove('active');
+    photosButton.classList.add('active');
+</script>
+
+<%- include('partials/footer.ejs')%>
