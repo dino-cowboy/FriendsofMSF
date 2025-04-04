@@ -70,8 +70,8 @@ svg.socials:hover, .header:hover{
 }
 
 .imageSize{
-    height: 30rem;
-    width: 30rem;
+    height: 24rem;
+    width: 24rem;
     padding: 1rem;
 }
 
@@ -120,12 +120,13 @@ svg.socials:hover, .header:hover{
   .body-text{
     font-family: "Rubik";
     justify-content: center;
+    font-size: 125%;
     text-align: center;
   }
 
   .carousel{
-    width: 100% !important;
-    height: 100% !important;
+    width: 30rem !important;
+    height: 38rem !important;
     margin: 0;
     justify-content: center !important;
   }
