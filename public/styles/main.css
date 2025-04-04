@@ -65,6 +65,7 @@ svg.socials:hover, .header:hover{
     justify-content:center;
     text-align: center;
     color:#e03444;
+    font-size: medium;
     font-weight: 700;
     font-family: "Rubik";
 }
