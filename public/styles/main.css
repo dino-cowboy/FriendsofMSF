@@ -6,6 +6,9 @@ body{
     display: flex;
     flex-direction: column;
 }
+html {
+  overflow-x: hidden;
+}
 
 .container-fluid, .navbar {
     max-width: 100%;
