@@ -1,1 +1,5 @@
-User-agent: *
+User-agent: Googlebot
+Al-agent: *
+Disallow:low: /
+
+User
