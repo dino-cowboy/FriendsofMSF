@@ -10,7 +10,7 @@ env.config();
 //Import environment variables
 
 const app = express();
-const port = process.env.SERVER_PORT;
+const port = 3001;//process.env.SERVER_PORT;
 // Express is referenced as app and port is set to 3000 for local hosting
 
 const GOOGLE_API_KEY = process.env.API_KEY;
@@ -24,47 +24,51 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 //Links the public folder to the server
 
-app.post('/send-email', (req, res) => {
+app.post('/send-email', async (req, res) => {
     const { name, email, message } = req.body;
-    // Grabs input fields from client side
+    const recaptchaResponse = req.body['g-recaptcha-response']; // Grabs the token from the form
+    const secretKey = "process.env.RECAPTCHA_SECRET_KEY";
 
-    
-    const transporter = nodemailer.createTransport({
-        host: process.env.SMTP,
-        port: process.env.EMAIL_PORT,
-        secure: true, 
-        auth: {
-          user: "friendsmsfutd@gmail.com",
-          pass: process.env.GMAIL_PASS,
-        },
-      });
-      // Sets up Nodemailer transport to send emails to our gmail through a SSL/TLS encryption
-      
-    transporter.verify(function (error, success) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Server is ready to take our messages");
+    // 1. Check if the captcha was even attempted
+    if (!recaptchaResponse) {
+        return res.status(400).send("Please complete the reCAPTCHA.");
     }
-    });
-    //Debugging if nodemailer is not working
 
-    async function send() {
+    try {
+        // 2. Verify with Google's API
+        const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaResponse}`;
+        const response = await axios.post(verifyUrl);
+
+        if (!response.data.success) {
+            return res.status(400).send("reCAPTCHA verification failed. Are you a bot?");
+        }
+
+        // 3. If successful, continue with Nodemailer
+        const transporter = nodemailer.createTransport({
+            host: process.env.SMTP,
+            port: process.env.EMAIL_PORT,
+            secure: true, 
+            auth: {
+                user: "friendsmsfutd@gmail.com",
+                pass: process.env.GMAIL_PASS,
+            },
+        });
         
-        const info = await transporter.sendMail({
+        await transporter.sendMail({
             from: email,
             to: 'friendsmsfutd@gmail.com',
             subject: `Message from ${name}`,
-            text: message + " | Sent from: " + email,
+            text: `${message} | Sent from: ${email}`,
         });
-        //Sends email in programmed format, parsing the data that the user gave
 
+        console.log("Email sent successfully!");
         res.redirect('/Contact');
-      }
-      send().catch(console.error);
-      //reloads contact page after email has been sent and logs an error if one occurs
-  });
 
+    } catch (error) { 
+        console.error("Error:", error);
+        res.status(500).send("An error occurred while processing your request.");
+    }
+});
 
 
 app.get('/drive-image', async (req, res) => {
