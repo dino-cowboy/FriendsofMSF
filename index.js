@@ -55,20 +55,30 @@ app.post('/send-email', async (req, res) => {
             },
         });
         
-        await transporter.sendMail({
+         transporter.verify(function (error, success) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Server is ready to take our messages");
+    }
+    });
+
+
+        const info = await transporter.sendMail({
             from: email,
             to: 'friendsmsfutd@gmail.com',
             subject: `Message from ${name}`,
             text: `${message} | Sent from: ${email}`,
         });
-
-        console.log("Email sent successfully!");
-        res.redirect('/Contact');
-
-    } catch (error) { 
-        console.error("Error:", error);
-        res.status(500).send("An error occurred while processing your request.");
+        
+        res.redirect('/');
+        console.log("Message sent: %s", info.messageId);
     }
+      catch (error) { 
+        console.error("Server Error:", error);
+        res.status(500).send("Something went wrong on our end.");
+    }
+
 });
 
 
