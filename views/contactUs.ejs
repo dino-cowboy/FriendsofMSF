@@ -72,16 +72,4 @@
     joinButton.classList.remove('active');
     contactButton.classList.add('active');
 
-    // 1. Look at the URL to see if it ends in ?success=true
-    const params = new URLSearchParams(window.location.search);
-    
-    if (params.get('success') === 'true') {
-        // 2. Make the alert visible
-        const alertBox = document.getElementById('success-alert');
-        alertBox.style.display = 'block';
-
-        // 3. Clean the URL so the alert doesn't show up again if they refresh
-        window.history.replaceState({}, document.title, window.location.pathname);
-    }
-
 </script>
