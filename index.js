@@ -25,9 +25,10 @@ app.use(express.static("public"));
 //Links the public folder to the server
 
 app.post('/send-email', async (req, res) => {
+
     const { name, email, message } = req.body;
     const recaptchaResponse = req.body['g-recaptcha-response']; // Grabs the token from the form
-    const secretKey = "process.env.RECAPTCHA_SECRET_KEY";
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
     // 1. Check if the captcha was even attempted
     if (!recaptchaResponse) {
@@ -102,7 +103,9 @@ app.get("/", (req, res) =>{
 //Loads home page
 
 app.get("/Contact", (req, res) => {
-    res.render("contactUs.ejs");
+    res.render("contactUs.ejs", {
+        siteKey: process.env.RECAPTCHA_SITE_KEY
+    });
 });
 //Loads Contact US page
 
