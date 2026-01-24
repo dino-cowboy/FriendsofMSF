@@ -10,7 +10,7 @@ env.config();
 //Import environment variables
 
 const app = express();
-const port = 3001;//process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT;
 // Express is referenced as app and port is set to 3000 for local hosting
 
 const GOOGLE_API_KEY = process.env.API_KEY;
