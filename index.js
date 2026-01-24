@@ -71,7 +71,7 @@ app.post('/send-email', async (req, res) => {
             text: `${message} | Sent from: ${email}`,
         });
         
-        res.redirect('/Contact');
+        res.redirect('/?success=true');
         console.log("Message sent: %s", info.messageId);
     }
       catch (error) { 
