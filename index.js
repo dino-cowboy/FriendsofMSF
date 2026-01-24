@@ -10,7 +10,11 @@ env.config();
 //Import environment variables
 
 const app = express();
+<<<<<<< HEAD
 const port = process.env.SERVER_PORT;
+=======
+const port = 3001;//process.env.SERVER_PORT;
+>>>>>>> 82309a7 (Initial commit with reCAPTCHA and Nodemailer)
 // Express is referenced as app and port is set to 3000 for local hosting
 
 const GOOGLE_API_KEY = process.env.API_KEY;
@@ -24,6 +28,7 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 //Links the public folder to the server
 
+<<<<<<< HEAD
 app.post('/send-email', (req, res) => {
     const { name, email, message } = req.body;
     // Grabs input fields from client side
@@ -65,6 +70,53 @@ app.post('/send-email', (req, res) => {
       //reloads contact page after email has been sent and logs an error if one occurs
   });
 
+=======
+app.post('/send-email', async (req, res) => {
+    const { name, email, message } = req.body;
+    const recaptchaResponse = req.body['g-recaptcha-response']; // Grabs the token from the form
+    const secretKey = "process.env.RECAPTCHA_SECRET_KEY";
+
+    // 1. Check if the captcha was even attempted
+    if (!recaptchaResponse) {
+        return res.status(400).send("Please complete the reCAPTCHA.");
+    }
+
+    try {
+        // 2. Verify with Google's API
+        const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaResponse}`;
+        const response = await axios.post(verifyUrl);
+
+        if (!response.data.success) {
+            return res.status(400).send("reCAPTCHA verification failed. Are you a bot?");
+        }
+
+        // 3. If successful, continue with Nodemailer
+        const transporter = nodemailer.createTransport({
+            host: process.env.SMTP,
+            port: process.env.EMAIL_PORT,
+            secure: true, 
+            auth: {
+                user: "friendsmsfutd@gmail.com",
+                pass: process.env.GMAIL_PASS,
+            },
+        });
+        
+        await transporter.sendMail({
+            from: email,
+            to: 'friendsmsfutd@gmail.com',
+            subject: `Message from ${name}`,
+            text: `${message} | Sent from: ${email}`,
+        });
+
+        console.log("Email sent successfully!");
+        res.redirect('/Contact');
+
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).send("An error occurred while processing your request.");
+    }
+});
+>>>>>>> 82309a7 (Initial commit with reCAPTCHA and Nodemailer)
 
 
 app.get('/drive-image', async (req, res) => {
