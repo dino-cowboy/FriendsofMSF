@@ -187,3 +187,9 @@ svg.socials:hover, .header:hover{
   margin: 15px auto;
   width: 50%;
 }
+
+.squish-text {
+  max-width: 900px;   /* Adjust this number */
+  margin: 0 auto;     /* Centers the text */
+  line-height: 1.6;   /* Optional: makes it easier to read */
+}
