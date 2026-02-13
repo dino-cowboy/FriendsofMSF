@@ -193,3 +193,9 @@ svg.socials:hover, .header:hover{
   margin: 0 auto;     /* Centers the text */
   line-height: 1.6;   /* Optional: makes it easier to read */
 }
+
+.title2{
+    color:#e03444;
+    font-weight: 700;
+    font-family: "Rubik";
+}
