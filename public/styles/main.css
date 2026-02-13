@@ -199,28 +199,3 @@ svg.socials:hover, .header:hover{
     font-family: "Rubik";
 }
 
-<style>
-  body {
-    font-family: 'Rubik', sans-serif;
-  }
-
-  /* Force "Perfect" Centering on Desktop */
-  @media (min-width: 992px) {
-    .navbar-collapse {
-      display: flex !important;
-      position: relative;
-    }
-
-    .navbar-nav {
-      /* This pulls the links to the absolute center of the navbar */
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* This ensures the Donate button stays pinned to the far right */
-    .ms-auto-desktop {
-      margin-left: auto !important;
-    }
-  }
-</style>
