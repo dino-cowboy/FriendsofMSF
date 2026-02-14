@@ -3,6 +3,8 @@ body{
     height: 100%;
     width: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 html {
   overflow-x: hidden;
@@ -51,10 +53,7 @@ svg.socials:hover, .header:hover{
     font-weight: 700 !important;
 }
 
-.navbar-collapse{
-    justify-content: center;
-    align-items: center;
-}
+
 .hidden{
     border: none;
     background: none;
