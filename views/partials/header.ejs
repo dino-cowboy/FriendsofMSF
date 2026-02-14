@@ -23,23 +23,33 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary rounded px-4">
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded px-4">
   <div class="container-fluid">
-    
-    <!-- Brand -->
-    <a class="navbar-brand d-flex align-items-center" href="/">
-      <img src="/assets/UTDMSFFriends.png" alt="Logo" style="height:50px;" class="me-2">
-      <span class="fs-5 fw-semibold title2">Friends of MSF @ UTD</span>
-    </a>
 
-    <!-- Toggler -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="d-flex w-100 justify-content-between align-items-center d-lg-none">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="/assets/UTDMSFFriends.png" alt="Logo" style="height:40px;" class="me-2">
+        <span class="fs-6 fw-semibold title2">Friends of MSF @ UTD</span>
+      </a>
+      <button class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
 
-    <!-- Collapsible Menu -->
     <div class="collapse navbar-collapse" id="mainNavbar">
+      
+      <div class="d-none d-lg-flex flex-grow-1" style="flex-basis: 0;">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <img src="/assets/UTDMSFFriends.png" alt="Logo" style="height:50px;" class="me-2">
+          <span class="fs-5 fw-semibold title2">Friends of MSF @ UTD</span>
+        </a>
+      </div>
+
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
         <li class="nav-item mx-2"><a class="nav-link home fw-semibold" href="/">Home</a></li>
         <li class="nav-item mx-2"><a class="nav-link contact fw-semibold" href="/Contact">Contact Us</a></li>
@@ -47,13 +57,13 @@
         <li class="nav-item mx-2"><a class="nav-link join fw-semibold" href="/Join">Join Us</a></li>
       </ul>
 
-      <div class="d-flex flex-grow-1 justify-content-center justify-content-lg-end">
+      <div class="d-flex flex-grow-1 justify-content-center justify-content-lg-end" style="flex-basis: 0;">
         <button class="btn btn-danger px-4 fw-semibold" data-bs-toggle="modal" data-bs-target="#myModal">
           Donate
         </button>
       </div>
+
     </div>
-    
   </div>
 </nav>
 

@@ -51,9 +51,14 @@ svg.socials:hover, .header:hover{
 .navbar-nav, button{
     font-family: "Rubik" !important;
     font-weight: 700 !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
-
+.navbar-collapse{
+    justify-content: center;
+    align-items: center;
+}
 .hidden{
     border: none;
     background: none;
@@ -116,7 +121,14 @@ svg.socials:hover, .header:hover{
 
   input{
     padding: 25px;
-  } 
+  }
+
+  nav{
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto !important;
+  }
 
   .body-text{
     font-family: "Rubik";
