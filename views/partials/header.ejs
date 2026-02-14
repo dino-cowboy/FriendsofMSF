@@ -31,7 +31,12 @@
         <img src="/assets/UTDMSFFriends.png" alt="Logo" style="height:40px;" class="me-2">
         <span class="fs-6 fw-semibold title2">Friends of MSF @ UTD</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <button class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
@@ -106,20 +111,7 @@
 
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-
-  const navLinks = document.querySelectorAll('.nav-link');
-const menuToggle = document.getElementById('mainNavbar');
-const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false});
-
-navLinks.forEach((l) => {
-    l.addEventListener('click', () => { 
-        if (window.innerWidth < 992) { // Only trigger on mobile/tablet
-            bsCollapse.hide(); 
-        }
-    });
-});
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
