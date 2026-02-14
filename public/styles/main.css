@@ -64,6 +64,19 @@ svg.socials:hover, .header:hover{
     background: none;
 }
 
+
+/* Ensure the button stays on top of the menu so it can be clicked again */
+.navbar-toggler {
+  position: relative;
+  z-index: 1051; /* Higher than the standard Bootstrap navbar z-index */
+}
+
+/* Ensure the navbar container itself doesn't eat the clicks */
+.navbar {
+  z-index: 1050;
+}
+
+
 .title{
     justify-content:center;
     text-align: center;
