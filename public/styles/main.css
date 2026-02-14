@@ -64,6 +64,15 @@ svg.socials:hover, .header:hover{
     background: none;
 }
 
+.navbar-toggler {
+  position: relative;
+  z-index: 9999; /* This ensures the button is on top of the menu */
+}
+
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
 
 .title{
     justify-content:center;
