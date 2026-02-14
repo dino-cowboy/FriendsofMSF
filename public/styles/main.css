@@ -48,6 +48,10 @@ svg.socials:hover, .header:hover{
     font-family: "Rubik";
 }
 
+.navbar-nav, button{
+    font-family: "Rubik" !important;
+    font-weight: 700 !important;
+}
 
 .navbar-collapse{
     justify-content: center;
@@ -201,9 +205,4 @@ svg.socials:hover, .header:hover{
 .title2{
     color:#e03444;
     font-family: "Rubik";
-}
-
-.title3{
-    font-weight: 700 !important;
-    font-family: "Rubik" !important;
 }
