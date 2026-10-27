@@ -64,7 +64,39 @@
       </div>
     </div>
   </div>
-  <%- include('partials/footer.ejs')%>
+<section class="container my-5 py-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8 text-center">
+        
+        <!-- American Red Cross SVG & Headline -->
+        <div class="d-flex align-items-center justify-content-center gap-2 mb-3">
+          <img src="assets/health_cross.svg" alt="American Red Cross Logo" width="36" height="36" class="flex-shrink-0">
+          <h4 class="mb-0 fw-bold text-dark">Blood Drive Milestone</h4>
+        </div>
+
+        <!-- Description -->
+        <p class="text-muted mb-3 fs-5">
+          MSF @ UTD has helped donate <strong class="text-danger">73 Units</strong> of blood with our goal being <strong>100</strong> by the end of 2026!
+        </p>
+
+        <!-- Progress Bar -->
+        <div class="progress" role="progressbar" aria-label="Blood drive goal progress" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="height: 26px;">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger fw-semibold" style="width: 73%;">
+            73%
+          </div>
+        </div>
+
+        <!-- Label Benchmarks -->
+        <div class="d-flex justify-content-between mt-2 text-secondary small fw-medium">
+          <span>0 Units</span>
+          <span>Goal: 100 Units</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer.ejs') %>
 </body>
 
 <script>
